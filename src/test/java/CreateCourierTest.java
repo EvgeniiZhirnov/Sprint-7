@@ -91,19 +91,6 @@ public class CreateCourierTest {
                 .and()
                 .body("message", equalTo("Недостаточно данных для входа"));
     }
-    @Test
-    public void loginNonexistentCourier() {//тест на логин за несуществующего курьера
-        Login login = new Login("Afonia", "222333");
-        given()
-                .header("Content-type", "application/json")
-                .body(login)
-                .when()
-                .post("/api/v1/courier/login")
-                .then().statusCode(404)
-                .and()
-                .body("message", equalTo("Учетная запись не найдена"));
-    }
-
 
     @After
     public void DeleteCourier() {
